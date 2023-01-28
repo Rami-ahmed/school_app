@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:school_app_22/screens/add_notes.dart';
-import 'package:school_app_22/screens/home.dart';
+import 'package:school_app_22/screens/pages/home.dart';
 import 'package:sizer/sizer.dart';
+import 'core/res/color.dart';
+import 'core/routes/routes.dart';
 import 'screens/classes_scr/add_classes.dart';
 import 'screens/classes_scr/classes_screen.dart';
 import 'screens/markers/add_markers.dart';
@@ -18,82 +20,99 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return Sizer(builder: (context, orientation, deviceType) {
       return MaterialApp(
+        title: 'Task Management',
         debugShowCheckedModeBanner: false,
-        title: 'school app',
-        routes: {
-          "addclass": (context) => const AddClass(),
-          "classscreen": (context) => const ClassesScreen(),
-          "addmarker": (context) => const AddMarkers(),
-          "markersscreen": (context) => const MarkersScreen(),
-          "addstudent": (context) => const AddStudents(),
-          "studentsscreen": (context) => const StudentsScreen(),
-          "addsubject": (context) => const AddSubject(),
-          "subjectsscreen": (context) => const SubjectsScreen(),
-          "addteacher": (context) => const AddTeachers(),
-          "teachersscreen": (context) => const TeachersScreen(),
-          "homepage": (context) => const Home(),
-        },
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: const Home(),
+        theme: AppColors.getTheme,
+        initialRoute: Routes.onBoarding,
+        onGenerateRoute: RouterGenerator.generateRoutes,
       );
     });
-
-    ;
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+// class MyApp extends StatelessWidget {
+//   const MyApp({super.key});
 
-  final String title;
+//   // This widget is the root of your application.
+//   @override
+//   Widget build(BuildContext context) {
+//     return Sizer(builder: (context, orientation, deviceType) {
+//       return MaterialApp(
+//         debugShowCheckedModeBanner: false,
+//         title: 'school app',
+//         routes: {
+//           "addclass": (context) => const AddClass(),
+//           "classscreen": (context) => const ClassesScreen(),
+//           "addmarker": (context) => const AddMarkers(),
+//           "markersscreen": (context) => const MarkersScreen(),
+//           "addstudent": (context) => const AddStudents(),
+//           "studentsscreen": (context) => const StudentsScreen(),
+//           "addsubject": (context) => const AddSubject(),
+//           "subjectsscreen": (context) => const SubjectsScreen(),
+//           "addteacher": (context) => const AddTeachers(),
+//           "teachersscreen": (context) => const TeachersScreen(),
+//           "homepage": (context) => const Home(),
+//         },
+//         theme: ThemeData(
+//           primarySwatch: Colors.blue,
+//         ),
+//         home: const Home(),
+//       );
+//     });
 
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
+//     ;
+//   }
+// }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+// class MyHomePage extends StatefulWidget {
+//   const MyHomePage({super.key, required this.title});
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
+//   final String title;
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
-    );
-  }
-}
+//   @override
+//   State<MyHomePage> createState() => _MyHomePageState();
+// }
+
+// class _MyHomePageState extends State<MyHomePage> {
+//   int _counter = 0;
+
+//   void _incrementCounter() {
+//     setState(() {
+//       _counter++;
+//     });
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text(widget.title),
+//       ),
+//       body: Center(
+//         child: Column(
+//           mainAxisAlignment: MainAxisAlignment.center,
+//           children: <Widget>[
+//             const Text(
+//               'You have pushed the button this many times:',
+//             ),
+//             Text(
+//               '$_counter',
+//               style: Theme.of(context).textTheme.headline4,
+//             ),
+//           ],
+//         ),
+//       ),
+//       floatingActionButton: FloatingActionButton(
+//         onPressed: _incrementCounter,
+//         tooltip: 'Increment',
+//         child: const Icon(Icons.add),
+//       ),
+//     );
+//   }
+// }

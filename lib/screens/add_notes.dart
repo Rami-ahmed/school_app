@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:school_app_22/local_database/sqflite_db.dart';
-import 'package:school_app_22/screens/home.dart';
+import 'package:school_app_22/screens/pages/home.dart';
 
 class AddNotes extends StatefulWidget {
   const AddNotes({super.key});
