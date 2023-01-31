@@ -9,6 +9,7 @@ class AppColors {
   static Color get bgColor => isDarkMode ? Colors.black : Colors.grey[50]!;
 
   static ThemeData get getTheme => ThemeData(
+        useMaterial3: true,
         primaryColor: primaryColor,
         primarySwatch: primarySwatch,
         appBarTheme: AppBarTheme(

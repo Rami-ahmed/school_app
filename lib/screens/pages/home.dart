@@ -181,29 +181,35 @@ class _HomeScreenState extends State<HomeScreen> {
               horizontal: 15,
               vertical: 10,
             ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(
-                  height: 10,
+            child: SingleChildScrollView(
+              child: SizedBox(
+                height: double.infinity,
+                child: ListView(
+                  physics: const BouncingScrollPhysics(),
+                  // crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    _taskHeader(),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    buildGrid(),
+                    const SizedBox(
+                      height: 25,
+                    ),
+                    _onGoingHeader(),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    const OnGoingTask(),
+                    const SizedBox(
+                      height: 40,
+                    ),
+                  ],
                 ),
-                _taskHeader(),
-                const SizedBox(
-                  height: 15,
-                ),
-                buildGrid(),
-                const SizedBox(
-                  height: 25,
-                ),
-                _onGoingHeader(),
-                const SizedBox(
-                  height: 10,
-                ),
-                const OnGoingTask(),
-                const SizedBox(
-                  height: 40,
-                ),
-              ],
+              ),
             ),
           ),
         ),
@@ -282,59 +288,68 @@ class _HomeScreenState extends State<HomeScreen> {
       crossAxisCount: 2,
       mainAxisSpacing: 15,
       crossAxisSpacing: 15,
-      children: const [
-        StaggeredGridTile.count(
-          crossAxisCellCount: 1,
-          mainAxisCellCount: 1.3,
-          child: TaskGroupContainer(
-            color: Colors.pink,
-            icon: Icons.people_alt_sharp,
-            taskCount: 10,
-            taskGroup: "Students",
+      children: [
+        GestureDetector(
+          onTap: () {
+            // To do
+          },
+          child: const StaggeredGridTile.count(
+            crossAxisCellCount: 1,
+            mainAxisCellCount: 1.3,
+            child: TaskGroupContainer(
+              color: Colors.pink,
+              icon: IconData(0xf08a8, fontFamily: 'MaterialIcons'),
+              taskCount: 10,
+              taskGroup: "Students",
+            ),
           ),
         ),
-        StaggeredGridTile.count(
-          crossAxisCellCount: 1,
-          mainAxisCellCount: 1,
-          child: TaskGroupContainer(
-            color: Colors.orange,
-            isSmall: true,
-            icon: Icons.mobile_friendly,
-            taskCount: 5,
-            taskGroup: "Markers",
-          ),
-        ),
-        StaggeredGridTile.count(
-          crossAxisCellCount: 1,
-          mainAxisCellCount: 1.3,
-          child: TaskGroupContainer(
-            color: Colors.green,
-            icon: Icons.article,
-            taskCount: 2,
-            taskGroup: "Classes",
-          ),
-        ),
-        StaggeredGridTile.count(
-          crossAxisCellCount: 1,
-          mainAxisCellCount: 1,
-          child: TaskGroupContainer(
-            color: Colors.blue,
-            isSmall: true,
-            icon: Icons.menu_book_outlined,
-            taskCount: 9,
-            taskGroup: "Subjects",
-          ),
-        ),
-        StaggeredGridTile.count(
-          crossAxisCellCount: 2,
-          mainAxisCellCount: 1,
-          child: TaskGroupContainer(
-            color: Colors.cyan,
-            icon: Icons.people_alt_sharp,
-            taskCount: 10,
-            taskGroup: "Teachers",
-          ),
-        ),
+        // const StaggeredGridTile.count(
+        //   key: GlobalObjectKey('2'),
+        //   crossAxisCellCount: 1,
+        //   mainAxisCellCount: 1,
+        //   child: TaskGroupContainer(
+        //     color: Colors.orange,
+        //     isSmall: true,
+        //     icon: Icons.content_paste_search,
+        //     taskCount: 5,
+        //     taskGroup: "Markers",
+        //   ),
+        // ),
+        // const StaggeredGridTile.count(
+        //   key: GlobalObjectKey('3'),
+        //   crossAxisCellCount: 1,
+        //   mainAxisCellCount: 1.3,
+        //   child: TaskGroupContainer(
+        //     color: Colors.green,
+        //     icon: Icons.corporate_fare,
+        //     taskCount: 2,
+        //     taskGroup: "Classes",
+        //   ),
+        // ),
+        // const StaggeredGridTile.count(
+        //   key: GlobalObjectKey('4'),
+        //   crossAxisCellCount: 1,
+        //   mainAxisCellCount: 1,
+        //   child: TaskGroupContainer(
+        //     color: Colors.blue,
+        //     isSmall: true,
+        //     icon: Icons.menu_book_outlined,
+        //     taskCount: 9,
+        //     taskGroup: "Subjects",
+        //   ),
+        // ),
+        // const StaggeredGridTile.count(
+        //   key: GlobalObjectKey('5'),
+        //   crossAxisCellCount: 2,
+        //   mainAxisCellCount: 1,
+        //   child: TaskGroupContainer(
+        //     color: Colors.cyan,
+        //     icon: Icons.people_alt_sharp,
+        //     taskCount: 10,
+        //     taskGroup: "Teachers",
+        //   ),
+        // ),
       ],
     );
   }

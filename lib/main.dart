@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:school_app_22/screens/add_notes.dart';
 import 'package:school_app_22/screens/pages/home.dart';
+import 'package:school_app_22/screens/pages/onboarding.dart';
+import 'package:school_app_22/screens/pages/today_task.dart';
 import 'package:sizer/sizer.dart';
 import 'core/res/color.dart';
 import 'core/routes/routes.dart';
@@ -26,7 +28,23 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Sizer(builder: (context, orientation, deviceType) {
       return MaterialApp(
-        title: 'Task Management',
+        title: 'school Management',
+        routes: {
+          "onboarding": (context) => const OnboardingScreen(),
+          "addclass": (context) => const AddClass(),
+          "home": (context) => const HomeScreen(),
+          "todaystask": (context) => const TodaysTaskScreen(),
+          "classscreen": (context) => const ClassesScreen(),
+          "addmarker": (context) => const AddMarkers(),
+          "markersscreen": (context) => const MarkersScreen(),
+          "addstudent": (context) => const AddStudents(),
+          "studentsscreen": (context) => const StudentsScreen(),
+          "addsubject": (context) => const AddSubject(),
+          "subjectsscreen": (context) => const SubjectsScreen(),
+          "addteacher": (context) => const AddTeachers(),
+          "teachersscreen": (context) => const TeachersScreen(),
+          "homepage": (context) => const Home(),
+        },
         debugShowCheckedModeBanner: false,
         theme: AppColors.getTheme,
         initialRoute: Routes.onBoarding,
